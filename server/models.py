@@ -2,7 +2,7 @@ from sqlalchemy_serializer import SerializerMixin
 from config import db, metadata, bcrypt
 from sqlalchemy.ext.hybrid import hybrid_property
 
-class User(db.model, SerializerMixin):
+class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
     serialize_rules = ('-entries.user', '-_password_hash')
