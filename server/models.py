@@ -5,13 +5,13 @@ from sqlalchemy.ext.hybrid import hybrid_property
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-    serialize_rules = ('-entries.user', '-_password_hash')
+    serialize_rules = ('-entries.user', '-_password_hash',)
 
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String, unique = True, nullable = False)
     _password_hash = db.Column(db.String)
 
-    entries = db.relationship('Entry', back_populates = 'users')
+    entries = db.relationship('Entry', back_populates = 'user')
 
     @hybrid_property
     def password_hash(self):
@@ -37,7 +37,7 @@ class Entry(db.Model, SerializerMixin):
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    user = db.relationship('User', back_populates = 'recipes')
+    user = db.relationship('User', back_populates = 'entries')
 
     def __repr__(self):
         return f'<Entry {self.id}: {self.title}'
