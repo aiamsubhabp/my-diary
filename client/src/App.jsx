@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Login from './pages/Login'
 import './App.css'
+import EntryList from './pages/EntryList'
 
 
 function App() {
@@ -19,7 +20,11 @@ function App() {
   
 
   return (
-    <h1>App Comp - Signed In - This should go to home page</h1>
+    <Router>
+      <Routes>
+        <Route path='/entries' element = {<EntryList />} />
+      </Routes>
+    </Router>
  
   )
 }

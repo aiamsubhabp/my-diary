@@ -55,6 +55,7 @@ function SignupForm({onLogin}){
                 value={formik.values.username}
                 onChange={formik.handleChange}    
             />
+            <p style={{color:'red'}}>{formik.errors.username}</p>
             <br />
             <label htmlFor="password">Password: </label>
             <input 
@@ -64,6 +65,7 @@ function SignupForm({onLogin}){
                 value={formik.values.password}
                 onChange={formik.handleChange}
             />
+            <p style={{color:'red'}}>{formik.errors.password}</p>
             <button type="submit">Submit</button>
         </form>
     )
