@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
-function EntryList() {
-    const [entries, setEntries] = useState([])
+function EntryList({entries}) {
 
-    useEffect(() => {
-        fetch("/api/entries")
-            .then((r) => r.json())
-            .then(data => setEntries(data))
-    }, [])
 
     return (
         <div>
@@ -21,7 +16,10 @@ function EntryList() {
             ) : (
                 <>
                     <h2>No Entries Found...</h2>
-                    <button>Create Your First Entry</button>
+                    <Link to="/new_entry">
+                        <button>Create Your First Entry</button>
+                    </Link>
+                    
                 </>
             )}
 
