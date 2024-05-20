@@ -1,14 +1,26 @@
 import { useState } from "react";
+import LoginForm from "../components/LoginForm";
+import SignupForm from "../components/SignupForm";
 
-function Login() {
+function Login({onLogin}) {
     const [showLogin, setShowLogin] = useState(true)
 
     return (
         <>
             {showLogin ? (
-                <h1>Show Log in True</h1>
+                <>
+                    <LoginForm onLogin = {onLogin} />
+                    <p>
+                        Don't have an account? &nbsp;
+                        <button type="button" onClick={() => setShowLogin(false)}>Sign Up</button>
+                    </p>
+                </>
+                
+                
             ) : 
-                <h1>Show Log in False</h1>
+                <>
+                    <SignupForm onLogin = {onLogin} />
+                </>
             }
 
 

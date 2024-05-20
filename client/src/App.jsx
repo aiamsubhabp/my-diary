@@ -15,11 +15,11 @@ function App() {
     })
   }, [])
 
-  if (!user) return <Login />
+  if (!user) return <Login onLogin = {setUser} />
   
 
   return (
-    <h1>What</h1>
+    <h1>App Comp - Signed In - This should go to home page</h1>
  
   )
 }
