@@ -5,7 +5,6 @@ function LoginForm({onLogin}) {
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([])
 
-
     function handleSubmit(e) {
         e.preventDefault()
         fetch("/api/login", {
@@ -19,9 +18,9 @@ function LoginForm({onLogin}) {
                 r.json().then((user) => onLogin(user))
             } else {
                 r.json().then((err) => setErrors(err.errors))
+                alert('Sign in failed')
             }
         })
-
     }
 
     return (
