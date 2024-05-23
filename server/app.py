@@ -1,18 +1,9 @@
-from flask import request, session, Flask, render_template, send_from_directory
+from flask import request, session, render_template, send_from_directory
 from flask_restful import Resource, Api
 from sqlalchemy.exc import IntegrityError
 
 from .models import User, Entry
 from .config import app, db, api
-
-app = Flask(
-	__name__,
-	static_url_path='',
-	static_folder='../client/dist',
-	template_folder='../client/dist'
-)
-
-api = Api(app)
 
 @app.route('/')
 @app.route('/<int:id>')
