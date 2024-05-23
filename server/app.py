@@ -1,9 +1,18 @@
-from flask import request, session
-from flask_restful import Resource
+from flask import request, session, Flask, render_template
+from flask_restful import Resource, Api
 from sqlalchemy.exc import IntegrityError
 
 from .models import User, Entry
 from .config import app, db, api
+
+app = Flask(
+	__name__,
+	static_url_path='',
+	static_folder='../client/dist',
+	template_folder='../client/dist'
+)
+
+api = Api(app)
 
 
 class Signup(Resource):
@@ -122,6 +131,10 @@ class EntriesById(Resource):
 			db.session.commit()
 
 			return ('Entry sucessfully deleted', 204)
+
+@app.route('/')
+def index():
+	return render_template("index.html")
 
 api.add_resource(Signup, '/api/signup')
 api.add_resource(CheckSession, '/api/check_session')
