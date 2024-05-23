@@ -15,8 +15,9 @@ app = Flask(
 api = Api(app)
 
 @app.route('/')
-def index():
-	return render_template("../client/dist/index.html")
+@app.route('/<int:id>')
+def index(id=0):
+	return render_template("index.html")
 
 class Signup(Resource):
 	def post(self):
