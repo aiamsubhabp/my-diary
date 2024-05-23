@@ -16,7 +16,7 @@ api = Api(app)
 
 @app.route('/')
 def index():
-	return render_template("index.html")
+	return render_template("../client/dist/index.html")
 
 class Signup(Resource):
 	def post(self):
