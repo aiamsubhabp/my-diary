@@ -14,18 +14,18 @@ app = Flask(
 
 api = Api(app)
 
-# @app.route('/')
-# @app.route('/<int:id>')
-# def index(id=0):
-# 	return render_template('index.html')
+@app.route('/')
+@app.route('/<int:id>')
+def index(id=0):
+	return render_template('index.html')
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve(path):
-    if path != "" and os.path.exists(app.static_folder + '/' + path):
-        return send_from_directory(app.static_folder, path)
-    else:
-        return send_from_directory(app.static_folder, 'index.html')
+# @app.route('/', defaults={'path': ''})
+# @app.route('/<path:path>')
+# def serve(path):
+#     if path != "" and os.path.exists(app.static_folder + '/' + path):
+#         return send_from_directory(app.static_folder, path)
+#     else:
+#         return send_from_directory(app.static_folder, 'index.html')
 
 class Signup(Resource):
 	def post(self):
