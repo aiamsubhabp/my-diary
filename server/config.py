@@ -32,7 +32,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app=app, metadata=metadata)
-db.init_app(app)
+# db.init_app(app)
 
 migrate = Migrate(app=app, db=db)
 
