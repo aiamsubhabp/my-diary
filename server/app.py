@@ -1,4 +1,4 @@
-from flask import request, session, Flask, render_template
+from flask import request, session, Flask, render_template, send_from_directory
 from flask_restful import Resource, Api
 from sqlalchemy.exc import IntegrityError
 
@@ -17,7 +17,7 @@ api = Api(app)
 @app.route('/')
 @app.route('/<int:id>')
 def index(id=0):
-	return render_template("index.html")
+	return send_from_directory('../client/dist', 'index.html')
 
 class Signup(Resource):
 	def post(self):
