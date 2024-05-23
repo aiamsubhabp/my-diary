@@ -2,8 +2,8 @@ from flask import request, session, Flask, render_template, send_from_directory
 from flask_restful import Resource, Api
 from sqlalchemy.exc import IntegrityError
 
-from models import User, Entry
-from config import app, db, api
+from .models import User, Entry
+from .config import app, db, api
 
 app = Flask(
 	__name__,
