@@ -14,6 +14,9 @@ app = Flask(
 
 api = Api(app)
 
+@app.route('/')
+def index():
+	return render_template("index.html")
 
 class Signup(Resource):
 	def post(self):
@@ -132,9 +135,7 @@ class EntriesById(Resource):
 
 			return ('Entry sucessfully deleted', 204)
 
-@app.route('/')
-def index():
-	return render_template("index.html")
+
 
 api.add_resource(Signup, '/api/signup')
 api.add_resource(CheckSession, '/api/check_session')
