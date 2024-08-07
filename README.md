@@ -15,7 +15,16 @@
 
 ## API Endpoints
 ### Authentication
+ - Signup: POST /api/signup - Create a new user account.
+ - Login: POST /api/login - Authenticate a user and start a session.
+ - Logout: DELETE /api/logout - End the user session.
+ - Check Session: GET /api/check_session - Check if the user is logged in.
 ### Diary Entries
+ - Retrieve All Entries: GET /api/entries - Get all diary entries for the logged-in user.
+ - Create New Entry: POST /api/entries - Create a new diary entry.
+ - Retrieve Entry by ID: GET /api/entries/<int:id> - Get a specific entry by ID.
+ - Update Entry: PATCH /api/entries/<int:id> - Update a specific entry by ID.
+ - Delete Entry: DELETE /api/entries/<int:id> - Delete a specific entry by ID.
 
 ## License
-
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
